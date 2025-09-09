@@ -67,7 +67,7 @@ Check out our `CONTRIBUTING.md` guide to see how you can help.
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Please see the CONTRIBUTING.md guide for more information.
+We welcome contributions from the community! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) guide for more information.
 
 ---
 
