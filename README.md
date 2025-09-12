@@ -1,3 +1,23 @@
+
+<p align="center">
+<!--     <a href="https://pypi.org/project/FletXr/">
+        <img src="https://img.shields.io/pypi/v/FletXr" alt="PyPI Version" />
+    </a> -->
+<!--     <a href="https://pepy.tech/project/FletXr">
+        <img src="https://static.pepy.tech/badge/FletXr" alt="Downloads" />
+    </a> -->
+    <a href="LICENSE">
+        <img src="https://img.shields.io/badge/License-AGPLv3-blue.svg" alt="License" />
+    </a>
+    <a href="">
+        <img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python" />
+    </a>
+    <a href="https://github.com/AllDotPy/Valkyrie">
+        <img src="https://img.shields.io/github/commit-activity/m/AllDotPy/Valkyrie" alt="GitHub commit activity" />
+    </a>
+</p>
+
+
 # Valkyrie
 The guardian of your Pull Requests. She decides what gets to merge.
 
@@ -17,6 +37,9 @@ Valkyrie's power comes from its crowdsourced rule set. The community continuousl
 
 **Ready to join the guard?** Contribute rules, report false positives, improve the engine. Together, we make the open-source ecosystem safer.
 
+> ⚠️ Project Status: Active Development
+Valkyrie is currently under heavy development. We're building an industrial-grade security scanner with the community. Join us to shape the future of proactive security!
+
 ---
 
 ## 🛡️ **Why Valkyrie?**
@@ -28,7 +51,53 @@ Valkyrie's power comes from its crowdsourced rule set. The community continuousl
 | **🧩 Crowdsourced Rules** | The value comes from the community. Share rules for any service or tool. |
 | **⚡ Fast & Preventive** | Blazing-fast scans designed to keep pace with development, not slow it down. |
 
-## 🚀 **Get Started in 2 Minutes**
+### ✅ Robustness & Performance (Planned)
+
+- Async scanning with worker limiting
+- Robust error handling without interruptions
+- Rule caching and optimizations
+- Large project support (>10MB per file)
+
+### ✅ Extensibility (Planned)
+
+- Clean plugin system with clear interfaces
+- Customizable YAML rules by the community
+- Multi-cloud support (AWS, GCP, Azure, etc.)
+- Extensible API for new scanners
+
+### ✅ Native CI/CD Integration (Planned)
+
+- Auto-detection of CI environments
+- Standard output formats (SARIF, GitLab SAST)
+- Automatic PR/MR comments
+- Diff-only support for optimized scans
+
+### ✅ Clean Architecture (Planned)
+
+- Strongly typed code (mypy compatible)
+- Clear separation of concerns
+- Industry-standard patterns (Repository, Plugin, Strategy)
+
+### 🏗️ Current Development Focus
+
+We're currently building the foundational layers:
+
+- Core Scanning Engine - Async, typed, modular
+- Plugin System - Extensible security checks
+- Rule Repository - Community-driven patterns
+- CI Integrations - GitHub Actions first
+
+---
+
+## 🚀 Coming Soon - Planned Features
+### 🔍 Multi-Layer Security Scanning
+
+- **Secrets Detection**: API keys, tokens, credentials with crowd-sourced patterns
+- **Dependency Scanning**: SBOM generation and vulnerability detection (Vulnera plugin)
+- **IAM Configuration**: Risky cloud permissions in AWS, GCP, Azure configurations
+- **Custom Rules**: Community-driven detection rules for any service or framework
+
+## 🚀 **Get Started in 2 Minutes (When Available)**
 
 ```yaml
 # .github/workflows/valkyrie-scan.yml
@@ -62,6 +131,11 @@ Check out our `CONTRIBUTING.md` guide to see how you can help.
 **Join the guard and become an open-source security legend.**
 
 --- -->
+---
+
+## 📜 License
+
+Valkyrie is licensed under AGPLv3 for open source use. Commercial licenses are available for enterprises that cannot use AGPLv3.
 
 ---
 
@@ -71,7 +145,10 @@ We welcome contributions from the community! Please see the [CONTRIBUTING.md](CO
 
 ---
 
-**Valkyrie: Security, forged by the community.**
+**Ready to join the guard?**
+Star the repo, open an issue, or submit a PR. Together, we'll build the security guardian every codebase deserves.
+
+**_Valkyrie: Security, forged by the community._**
 
 <br>
 <p align = 'center'>
