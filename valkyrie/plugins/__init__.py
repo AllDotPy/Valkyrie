@@ -1,7 +1,8 @@
 """
 """
 from pathlib import Path
-from typing import List, Set, Dict, Any
+from typing import List, Set, Dict, Any, Optional
+import logging
 
 from valkyrie.core.types import (
     RuleMetadata, SecurityFinding, ScanRule,
@@ -15,8 +16,13 @@ from valkyrie.core.types import (
 class BaseSecurityRule(ScanRule):
     """Base implementation for security rules"""
     
-    def __init__(self, metadata: RuleMetadata):
+    def __init__(
+        self, 
+        metadata: RuleMetadata,
+        logger: Optional[logging.Logger] = None
+    ):
         self._metadata = metadata
+        self.logger = logger or logging.getLogger(__name__)
     
     @property
     def metadata(self) -> RuleMetadata:
@@ -42,9 +48,13 @@ class BaseSecurityRule(ScanRule):
 class PluginManager:
     """Manages scanner plugins and their lifecycle"""
     
-    def __init__(self):
+    def __init__(
+        self,
+        logger: Optional[logging.Logger] = None
+    ):
         self.plugins: Dict[str, ScannerPlugin] = {}
         self.enabled_plugins: Set[str] = set()
+        self.logger = logger or logging.getLogger(__name__)
     
     async def register_plugin(
         self, 
