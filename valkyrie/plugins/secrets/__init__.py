@@ -14,7 +14,7 @@ from valkyrie.core.types import (
     FileLocation
 )
 
-from valkyrie.plugins.secrets.conf import (
+from .conf import (
     SECRETS_PATTERNS, SecretPattern
 )
 
@@ -82,11 +82,13 @@ class SecretsDetectionRule(BaseSecurityRule):
         for line_num, line in enumerate(lines, 1):
             # Skip comments and obvious false positives
             line_lower = line.lower().strip()
-            if (line_lower.startswith('#') or 
+            if (
+                line_lower.startswith('#') or 
                 line_lower.startswith('//') or 
                 'example' in line_lower or 
                 'placeholder' in line_lower or 
-                'your_api_key_here' in line_lower):
+                'your_api_key_here' in line_lower
+            ):
                 continue
             
             for pattern in self.patterns:

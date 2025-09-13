@@ -127,7 +127,7 @@ class DependenciesPlugin(ScannerPlugin):
     
     @property
     def version(self) -> str:
-        return "1.0.0"
+        return "0.1.0"
     
     async def initialize(self, config: Dict[str, Any]) -> None:
         """Initialize plugin and load vulnerability database"""

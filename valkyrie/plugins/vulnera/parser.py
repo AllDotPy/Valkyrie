@@ -189,7 +189,7 @@ class PackageJsonParser(BaseDependencyParser):
 #####
 DependencyParser.register()
 class PackageLockParser(BaseDependencyParser):
-    """Parser foor package-lock.json (Node.js)"""
+    """Parser for package-lock.json (Node.js)"""
 
     @property
     def dep_file(self):
@@ -596,7 +596,7 @@ class ComposerJsonParser(BaseDependencyParser):
 #####
 DependencyParser.register()
 class ComposerLockParser(BaseDependencyParser):
-    """Parser pour composer.lock (PHP)"""
+    """Parser for composer.lock (PHP)"""
 
     @property
     def dep_file(self):

@@ -211,4 +211,4 @@ __marimo__/
 docs/*
 rules/*
 tests/*
-# valkyrie/*
+valkyrie/repositories/*

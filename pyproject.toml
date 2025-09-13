@@ -9,9 +9,13 @@ maintainers = [{ name = "#Einswilli", email = "einswilligoeh@email.com" }]
 requires-python = ">=3.10"
 keywords = [
     "valkyrie", "CI/CD", "security scaner", "guardian",
-    "pipelines"
+    "pipelines", "iam", "secrets"
 ]
-dependencies = []
+dependencies = [
+    "toml>=0.10.2",
+    "tomli>=2.2.1",
+    "yamllib>=0.0.1",
+]
 
 [project.optional-dependencies]
 dev = [
