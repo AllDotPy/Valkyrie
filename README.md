@@ -101,21 +101,66 @@ We're currently building the foundational layers:
 
 ```yaml
 # .github/workflows/valkyrie-scan.yml
-name: Security Scan with Valkyrie
+name: Valkyrie Security Scan
 
-on: [pull_request]
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main]
 
 jobs:
   security-scan:
+    name: Security Scan
     runs-on: ubuntu-latest
+    
+    permissions:
+      # Required for posting PR comments and check runs
+      contents: read
+      pull-requests: write
+      checks: write
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Valkyrie Scan
-        uses: valkyrie-scanner/action@v1
         with:
-          rules-repo: 'valkyrie-community/rules' # The central community rules repo
+          # Fetch full history for diff scanning
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Valkyrie
+        run: |
+          pip install valkyrie-scanner
+          # Or install from source
+          # pip install git+https://github.com/valkyrie-scanner/valkyrie.git
+      
+      - name: Run Valkyrie Security Scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          valkyrie scan \
+            --format sarif \
+            --output valkyrie-results.sarif \
+            --severity medium \
+            --diff-only \
+            --verbose
+      
+      - name: Upload SARIF results to GitHub Security
+        if: always()
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: valkyrie-results.sarif
+      
+      - name: Archive scan results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: valkyrie-scan-results
+          path: valkyrie-results.*
 ```
 
 <!-- ## 📚 **Join the Legend**
