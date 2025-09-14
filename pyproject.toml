@@ -12,6 +12,7 @@ keywords = [
     "pipelines", "iam", "secrets"
 ]
 dependencies = [
+    "pydantic>=2.11.9",
     "toml>=0.10.2",
     "tomli>=2.2.1",
     "yamllib>=0.0.1",

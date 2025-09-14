@@ -251,29 +251,3 @@ class RuleRepository(ABC):
     async def update_rule(self, rule: ScanRule) -> None:
         """Update existing rule"""
         pass
-
-
-####    CONFIG
-
-####
-##      SCANNER CONFIG MODEL CLASS
-#####
-@dataclass
-class ScanConfig:
-    """Configuration for scanner execution"""
-
-    target_path: Path
-    include_patterns: List[str] = field(
-        default_factory=lambda: ["**/*"]
-    )
-    exclude_patterns: List[str] = field(
-        default_factory=lambda: [
-            "**/.git/**", "**/.vscode/**",
-            "**/node_modules/**", "**/__pycache__/**"
-        ]
-    )
-    max_file_size: int = 10 * 1024 * 1024  # 10MB
-    parallel_workers: int = 4
-    rule_filters: Set[str] = field(default_factory=set)  # Rule IDs to include
-    severity_threshold: SeverityLevel = SeverityLevel.LOW
-    fail_on_findings: bool = True
